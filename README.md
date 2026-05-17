@@ -1,73 +1,35 @@
-# React + TypeScript + Vite
+# Quiz App - React + TypeScript
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Este projeto é uma aplicação de Quiz dinâmica desenvolvida como atividade prática para a disciplina de **Programação para Web** no **Instituto Federal do Piauí (IFPI) - Campus Piripiri**.
 
-Currently, two official plugins are available:
+O objetivo principal da atividade foi aplicar conceitos de gerenciamento de rotas, estado dinâmico, estilização com Tailwind CSS e persistência de dados local.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+---
 
-## React Compiler
+## Funcionalidades Implementadas
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+A aplicação atende integralmente aos três tópicos exigidos no enunciado da atividade:
 
-## Expanding the ESLint configuration
+1. **Fidelidade ao Design (UI/UX):** Layout totalmente ajustado seguindo os padrões visuais estipulados, utilizando de forma consistente as cores personalizadas do tema (`quiz-purple`, `quiz-yellow` e `quiz-dark`) em todos os componentes.
+2. **Gerenciamento de Rotas e Estado Dinâmico:** Implementação da tela de Resultados (`/resultado`). Ao finalizar o quiz, a tela extrai os dados do `useLocation().state` contendo a quantidade total de acertos e erros, exibindo uma mensagem motivacional personalizada baseada na porcentagem de aproveitamento.
+3. **Persistência com LocalStorage:** As questões deixaram de ser estáticas (mockadas). O componente de Quiz foi migrado para ler as perguntas dinamicamente do `localStorage` sob a chave `@quiz_questions`, permitindo que novos dados sejam consumidos em tempo real a partir da tela de cadastro (`/admin`).
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+---
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+## Tecnologias Utilizadas
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+* **React** com **TypeScript**
+* **Vite** (Build Tool)
+* **Tailwind CSS v4** (Estilização)
+* **React Router Dom** (Gerenciamento de Rotas)
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+---
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+## Como Rodar o Projeto Localmente
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+Como as perguntas são lidas do `localStorage`, o projeto iniciará sem questões na primeira execução. Siga o fluxo abaixo para testar:
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+1. Clone o repositório ou baixe os arquivos.
+2. Instale as dependências executando no terminal:
+   ```bash
+   npm install
