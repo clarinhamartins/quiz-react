@@ -1,0 +1,9 @@
+@import "tailwindcss";
+
+@theme {
+  --color-quiz-purple: #8257e5;
+  --color-quiz-yellow: #febf08;
+  --color-quiz-dark: #121214;
+  
+  --radius-quiz: 2rem;
+}
